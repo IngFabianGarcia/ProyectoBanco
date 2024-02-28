@@ -64,6 +64,17 @@ Namespace My
                 Return CType(Me("BancoConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=HUE-LAB-1H4\SQLEXPRESS;Initial Catalog=Banco;Persist Security Info=Tr"& _ 
+            "ue;User ID=sa;Password=Umg$2023")>  _
+        Public ReadOnly Property BancoConnectionString1() As String
+            Get
+                Return CType(Me("BancoConnectionString1"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

@@ -2,8 +2,9 @@
 
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'BancoDataSet.cuentas' Puede moverla o quitarla según sea necesario.
-        Me.CuentasTableAdapter.Fill(Me.BancoDataSet.cuentas)
+        'TODO: esta línea de código carga datos en la tabla 'BancoDataSet1.CUENTAS' Puede moverla o quitarla según sea necesario.
+        Me.CUENTASTableAdapter1.Fill(Me.BancoDataSet1.CUENTAS)
+
 
     End Sub
 
@@ -16,7 +17,7 @@ Public Class Form1
             abrir_Conexion()
             cmd.ExecuteNonQuery()
             MsgBox("Registro agregado existosamente")
-            Me.CuentasTableAdapter.Fill(Me.BancoDataSet.cuentas)
+            Me.CUENTASTableAdapter1.Fill(Me.BancoDataSet1.CUENTAS)
         Catch ex As SqlException
             MsgBox("Surgio un error    " + ex.Message)
         End Try

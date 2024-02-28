@@ -31,16 +31,21 @@ Partial Class Form1
         Me.txtSaldo = New System.Windows.Forms.TextBox()
         Me.btnAgregarRegistro = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.BancoDataSet = New proyectoBanco2._0.BancoDataSet()
-        Me.CuentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CuentasTableAdapter = New proyectoBanco2._0.BancoDataSetTableAdapters.cuentasTableAdapter()
         Me.IdcuentaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ApellidosDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SaldoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CuentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BancoDataSet = New proyectoBanco2._0.BancoDataSet()
+        Me.CuentasTableAdapter = New proyectoBanco2._0.BancoDataSetTableAdapters.cuentasTableAdapter()
+        Me.BancoDataSet1 = New proyectoBanco2._0.BancoDataSet1()
+        Me.CUENTASBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CUENTASTableAdapter1 = New proyectoBanco2._0.BancoDataSet1TableAdapters.CUENTASTableAdapter()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BancoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CuentasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BancoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BancoDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CUENTASBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -105,25 +110,11 @@ Partial Class Form1
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdcuentaDataGridViewTextBoxColumn, Me.ApellidosDataGridViewTextBoxColumn, Me.NombreDataGridViewTextBoxColumn, Me.SaldoDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.CuentasBindingSource
+        Me.DataGridView1.DataSource = Me.CUENTASBindingSource1
         Me.DataGridView1.Location = New System.Drawing.Point(36, 225)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(443, 250)
         Me.DataGridView1.TabIndex = 7
-        '
-        'BancoDataSet
-        '
-        Me.BancoDataSet.DataSetName = "BancoDataSet"
-        Me.BancoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'CuentasBindingSource
-        '
-        Me.CuentasBindingSource.DataMember = "cuentas"
-        Me.CuentasBindingSource.DataSource = Me.BancoDataSet
-        '
-        'CuentasTableAdapter
-        '
-        Me.CuentasTableAdapter.ClearBeforeFill = True
         '
         'IdcuentaDataGridViewTextBoxColumn
         '
@@ -150,6 +141,34 @@ Partial Class Form1
         Me.SaldoDataGridViewTextBoxColumn.HeaderText = "saldo"
         Me.SaldoDataGridViewTextBoxColumn.Name = "SaldoDataGridViewTextBoxColumn"
         '
+        'CuentasBindingSource
+        '
+        Me.CuentasBindingSource.DataMember = "cuentas"
+        Me.CuentasBindingSource.DataSource = Me.BancoDataSet
+        '
+        'BancoDataSet
+        '
+        Me.BancoDataSet.DataSetName = "BancoDataSet"
+        Me.BancoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CuentasTableAdapter
+        '
+        Me.CuentasTableAdapter.ClearBeforeFill = True
+        '
+        'BancoDataSet1
+        '
+        Me.BancoDataSet1.DataSetName = "BancoDataSet1"
+        Me.BancoDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CUENTASBindingSource1
+        '
+        Me.CUENTASBindingSource1.DataMember = "CUENTAS"
+        Me.CUENTASBindingSource1.DataSource = Me.BancoDataSet1
+        '
+        'CUENTASTableAdapter1
+        '
+        Me.CUENTASTableAdapter1.ClearBeforeFill = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -166,8 +185,10 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.Text = "Form1"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BancoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CuentasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BancoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BancoDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CUENTASBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -188,4 +209,7 @@ Partial Class Form1
     Friend WithEvents ApellidosDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NombreDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents SaldoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents BancoDataSet1 As BancoDataSet1
+    Friend WithEvents CUENTASBindingSource1 As BindingSource
+    Friend WithEvents CUENTASTableAdapter1 As BancoDataSet1TableAdapters.CUENTASTableAdapter
 End Class
