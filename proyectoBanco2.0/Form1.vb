@@ -2,8 +2,9 @@
 
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'BancoDataSet1.CUENTAS' Puede moverla o quitarla según sea necesario.
-        Me.CUENTASTableAdapter1.Fill(Me.BancoDataSet1.CUENTAS)
+        'TODO: esta línea de código carga datos en la tabla 'BancoDataSet2.CUENTAS' Puede moverla o quitarla según sea necesario.
+        Me.CUENTASTableAdapter2.Fill(Me.BancoDataSet2.CUENTAS)
+
 
 
     End Sub
@@ -32,8 +33,11 @@ Public Class Form1
             'Si la respuesta es si realiza el commit'
             If respuesta = 6 Then
                 cmd.Transaction.Commit()
-                Me.CUENTASTableAdapter1.Fill(Me.BancoDataSet1.CUENTAS)
+                Me.CUENTASTableAdapter2.Fill(Me.BancoDataSet2.CUENTAS)
                 MsgBox("Registro agregado existosamente")
+                txtApellidos.Text = ""
+                txtNombre.Text = ""
+                txtSaldo.Text = ""
             Else
                 'Si es otra la respueta se realiza un rollback'
                 cmd.Transaction.Rollback()
@@ -45,11 +49,61 @@ Public Class Form1
             conexion.close()
 
 
-            Me.CUENTASTableAdapter1.Fill(Me.BancoDataSet1.CUENTAS)
+            Me.CUENTASTableAdapter2.Fill(Me.BancoDataSet2.CUENTAS)
         Catch ex As SqlException
             'Muestra error generado'
             MsgBox("Surgio un error    " + ex.Message)
 
         End Try
+    End Sub
+
+    Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
+        Try
+            abrir_Conexion()
+            Dim cmd As New System.Data.SqlClient.SqlCommand
+
+            'Toma los datos ingresados para insertarlos a la base de datos'
+            cmd.CommandType = System.Data.CommandType.StoredProcedure
+
+            cmd.CommandText = "altaCuentas"
+            cmd.Connection = conexion
+
+            'Establecer los parametros que recibe el procedimiento'
+            cmd.Parameters.Add(New SqlClient.SqlParameter("@dato1", txtApellidos.Text))
+            cmd.Parameters.Add(New SqlClient.SqlParameter("@dato2", txtNombre.Text))
+            cmd.Parameters.Add(New SqlClient.SqlParameter("@dato3", txtSaldo.Text))
+            Dim respuesta As Byte
+
+            'Muestra mensaje con opcion de lo que se desea realizar'
+
+            respuesta = MsgBox("¿Quiere agregar la cuenta?", vbYesNoCancel)
+
+            'Si la respuesta es si realiza el commit'
+            If respuesta = 6 Then
+                cmd.ExecuteNonQuery()
+                Me.CUENTASTableAdapter2.Fill(Me.BancoDataSet2.CUENTAS)
+                MsgBox("Registro agregado existosamente")
+                txtApellidos.Text = ""
+                txtNombre.Text = ""
+                txtSaldo.Text = ""
+
+            Else
+                'Si es otra la respueta se realiza un rollback'
+                cmd.Transaction.Rollback()
+                txtApellidos.Text = ""
+                txtNombre.Text = ""
+                txtSaldo.Text = ""
+                MsgBox("Registro Cancelado")
+            End If
+            conexion.close()
+
+
+            Me.CUENTASTableAdapter2.Fill(Me.BancoDataSet2.CUENTAS)
+        Catch ex As SqlException
+            'Muestra error generado'
+            MsgBox("Surgio un error    " + ex.Message)
+
+        End Try
+
     End Sub
 End Class

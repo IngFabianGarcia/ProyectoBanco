@@ -83,6 +83,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BancoDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BancoDataSet2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BancoDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +145,17 @@
     </None>
     <None Include="BancoDataSet1.xss">
       <DependentUpon>BancoDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="BancoDataSet2.xsc">
+      <DependentUpon>BancoDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="BancoDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BancoDataSet2.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BancoDataSet2.xss">
+      <DependentUpon>BancoDataSet2.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
