@@ -2,9 +2,8 @@
 
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'BancoDataSet2.CUENTAS' Puede moverla o quitarla según sea necesario.
-        Me.CUENTASTableAdapter2.Fill(Me.BancoDataSet2.CUENTAS)
-
+        'TODO: esta línea de código carga datos en la tabla 'BANCODataSet3.CUENTAS' Puede moverla o quitarla según sea necesario.
+        Me.CUENTASTableAdapter3.Fill(Me.BANCODataSet3.CUENTAS)
 
 
     End Sub
@@ -33,7 +32,7 @@ Public Class Form1
             'Si la respuesta es si realiza el commit'
             If respuesta = 6 Then
                 cmd.Transaction.Commit()
-                Me.CUENTASTableAdapter2.Fill(Me.BancoDataSet2.CUENTAS)
+                Me.CUENTASTableAdapter3.Fill(Me.BANCODataSet3.CUENTAS)
                 MsgBox("Registro agregado existosamente")
                 txtApellidos.Text = ""
                 txtNombre.Text = ""
@@ -47,9 +46,7 @@ Public Class Form1
                 MsgBox("Registro Cancelado")
             End If
             conexion.close()
-
-
-            Me.CUENTASTableAdapter2.Fill(Me.BancoDataSet2.CUENTAS)
+            Me.CUENTASTableAdapter3.Fill(Me.BANCODataSet3.CUENTAS)
         Catch ex As SqlException
             'Muestra error generado'
             MsgBox("Surgio un error    " + ex.Message)
@@ -81,7 +78,7 @@ Public Class Form1
             'Si la respuesta es si realiza el commit'
             If respuesta = 6 Then
                 cmd.ExecuteNonQuery()
-                Me.CUENTASTableAdapter2.Fill(Me.BancoDataSet2.CUENTAS)
+                Me.CUENTASTableAdapter3.Fill(Me.BANCODataSet3.CUENTAS)
                 MsgBox("Registro agregado existosamente")
                 txtApellidos.Text = ""
                 txtNombre.Text = ""
@@ -98,7 +95,7 @@ Public Class Form1
             conexion.close()
 
 
-            Me.CUENTASTableAdapter2.Fill(Me.BancoDataSet2.CUENTAS)
+            Me.CUENTASTableAdapter3.Fill(Me.BANCODataSet3.CUENTAS)
         Catch ex As SqlException
             'Muestra error generado'
             MsgBox("Surgio un error    " + ex.Message)
